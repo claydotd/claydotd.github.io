@@ -47,7 +47,7 @@ function App() {
         <h2>let&apos;s build your next project</h2>
         <p>
           Email{' '}
-          <a href="mailto:hello@agdcreative.com">hello@agdcreative.com</a> with a quick
+          <a href="mailto:hello@analoguegonedigital.co.uk">hello@analoguegonedigital.co.uk</a> with a quick
           description of your project and timeline.
         </p>
       </section>
