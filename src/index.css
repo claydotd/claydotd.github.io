@@ -3,11 +3,22 @@
   --bg-soft: #1b1612;
   --text: #f2e8d6;
   --text-h: #fff7e8;
-  --border: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(242, 232, 214, 0.78);
+  --border: rgba(255, 255, 255, 0.55);
   --brand: #f2e8d6;
+  --accent: #ffc15e;
+  --accent-soft: #e8a840;
   --card-bg: rgba(255, 255, 255, 0.04);
+  --card-bg-lit: rgba(255, 255, 255, 0.06);
+  --ink: #13100d;
 
-  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    'SF Pro Text',
+    'SF Pro Display',
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    sans-serif;
   line-height: 1.5;
   color: var(--text);
 }
@@ -31,27 +42,14 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(255, 197, 94, 0.25) 0%, transparent 44%),
-    radial-gradient(circle at 85% -10%, rgba(255, 159, 67, 0.16) 0%, transparent 48%),
-    linear-gradient(180deg, rgba(255, 186, 104, 0.08) 0%, transparent 45%);
+  background: radial-gradient(
+    ellipse 100% 80% at 50% 100%,
+    rgba(20, 14, 6, 0.5) 0%,
+    transparent 55%
+  );
   pointer-events: none;
-  z-index: -2;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(rgba(255, 255, 255, 0.05) 0.65px, transparent 0.65px),
-    radial-gradient(rgba(0, 0, 0, 0.15) 0.65px, transparent 0.65px);
-  background-size: 3px 3px, 4px 4px;
-  background-position: 0 0, 1px 1px;
-  mix-blend-mode: soft-light;
-  opacity: 0.38;
-  pointer-events: none;
-  z-index: -1;
+  z-index: -4;
+  contain: strict;
 }
 
 #root {
@@ -67,8 +65,20 @@ h2 {
 
 h1 {
   font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
 }
 
 p {
   margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light,
+  .atmosphere-dust {
+    animation: none;
+  }
+
+  .film-grain {
+    opacity: 0.38;
+  }
 }

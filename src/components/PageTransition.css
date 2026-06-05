@@ -1,0 +1,81 @@
+/* src/components/PageTransition.css
+   ─────────────────────────────────────────────────────────────────────────────
+   Tune these custom properties to taste without touching JS or keyframes.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.pt {
+  --pt-enter-scale:  0.95;      /* how far new page starts zoomed-in         */
+  --pt-blur-peak:    4px;       /* max blur at start of enter                */
+  --pt-grain-blend:  screen;    /* grain blend mode: screen | overlay | soft-light */
+}
+
+/* Only promote to GPU layer while animating */
+.pt--entering {
+  will-change: transform, opacity, filter;
+}
+
+/* ── ENTER ──────────────────────────────────────────────────────────────── */
+.pt--entering {
+  animation: pt-enter var(--pt-enter-ms, 780ms)
+    cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pt-enter {
+  0% {
+    opacity:   0;
+    transform: scale(var(--pt-enter-scale, 1.05));
+    filter:    blur(var(--pt-blur-peak, 8px));
+  }
+  /* Blur clears by ~55 % of the duration — matches when grain thins out */
+  55% {
+    filter: blur(0px);
+  }
+  100% {
+    opacity:   1;
+    transform: scale(1);
+    filter:    blur(0px);
+  }
+}
+
+/* ── GRAIN CANVAS ───────────────────────────────────────────────────────── */
+.pt-grain {
+  display: block;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.45;
+  mix-blend-mode: var(--pt-grain-blend, screen);
+
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+
+  /* Feather the grain */
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 15%,
+    rgba(0, 0, 0, 0.95) 35%,
+    rgba(0, 0, 0, 0.8) 55%,
+    rgba(0, 0, 0, 0.45) 75%,
+    rgba(0, 0, 0, 0.15) 90%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 15%,
+    rgba(0, 0, 0, 0.95) 35%,
+    rgba(0, 0, 0, 0.8) 55%,
+    rgba(0, 0, 0, 0.45) 75%,
+    rgba(0, 0, 0, 0.15) 90%,
+    transparent 100%
+  );
+}
+
+/* ── REDUCED MOTION ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pt--entering { animation-duration: 1ms !important; }
+  .pt-grain     { display: none; }
+}
