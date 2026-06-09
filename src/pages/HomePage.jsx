@@ -1,17 +1,6 @@
 /* 
 TO DO:
-1. Images to represent each service at floating at the sides of the hero section and the rest of the page.
-2. Hover effect for images (colourise/warmth effect).
-3. contact/inquiry form
-
-images are contained at ../assets/kit-images
-camera-brownie.png
-camera-slr.png
-headphones.png
-laptop.png
-midi-controller.png
-tape-recorder.png
-amp.png
+1. contact/inquiry form
 
 */
 
@@ -75,7 +64,7 @@ export default function HomePage() {
           </Link>
         </h1>
         <p className="lead">
-          analogue gone digital is a creative services and website management company based
+          analogue gone digital is <strong>clay leslie</strong>'s audio production, web management, and photography service, based
           in leith, specialising in creating a distinctly analogue feel.
         </p>
         <p className="lead">
