@@ -1,0 +1,398 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   AudioPlayer — warmth & warble
+   Namespace: .ap-*  (avoids collisions with .audio-* on AudioPage)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Palette tokens ──────────────────────────────────────────────────────────  */
+   .ap {
+    --ap-bg: var(--card-bg);
+    --ap-surface: var(--card-bg-lit);
+  
+    --ap-border: rgba(255,255,255,0.08);
+    --ap-border-soft: rgba(255,255,255,0.05);
+  
+    --ap-text-hi: var(--text-h);
+    --ap-text-mid: var(--text);
+    --ap-text-lo: var(--text-muted);
+  
+    --ap-accent: var(--accent);
+    --ap-accent-dim: rgba(255,193,94,.12);
+  
+    --ap-tag-border: rgba(255,255,255,.08);
+    --ap-tag-text: var(--text-muted);
+  
+    --ap-scroll: rgba(255,255,255,.15);
+    --ap-accent-tag: rgba(255,193,94,.2);
+    backdrop-filter: blur(16px);
+  }
+
+/* ── Shell ───────────────────────────────────────────────────────────────────*/
+
+.ap {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 300px;
+  background: var(--ap-bg);
+  border: 1px solid var(--ap-border);
+  border-radius: 18px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ── Player control panel ─────────────────────────────────────────────────────*/
+
+.ap-header {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  background: var(--ap-surface);
+  border-bottom: 1px solid var(--ap-border);
+}
+
+/* ── Track list ──────────────────────────────────────────────────────────────*/
+
+.ap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+    border-top: 1px solid var(--ap-border);
+  overflow-y: auto;
+}
+
+/* Thin warm scrollbar */
+.ap-list::-webkit-scrollbar        { width: 4px; }
+.ap-list::-webkit-scrollbar-track  { background: transparent; }
+.ap-list::-webkit-scrollbar-thumb  { background: var(--ap-scroll); border-radius: 2px; }
+
+.ap-list li:not(:last-child) .ap-item {
+  border-bottom: 1px solid var(--ap-border-soft);
+}
+
+/* ── Track button ────────────────────────────────────────────────────────────*/
+
+.ap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--ap-text-lo);
+  transition: background 0.12s, color 0.12s;
+}
+
+.ap-item:hover {
+  background: rgba(255,255,255,.03);
+  color: var(--ap-text-mid);
+}
+
+.ap-item--active {
+  background: rgba(255,193,94,.08);
+  box-shadow: none;
+  border-left: 2px solid var(--ap-accent);
+}
+
+.ap-item--active:hover {
+  background: rgba(255,193,94,.12);
+}
+
+/* ── EQ indicator ────────────────────────────────────────────────────────────*/
+
+.ap-item-indicator {
+  flex-shrink: 0;
+  width: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2px;
+}
+
+/* Static dot */
+.ap-dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition: background 0.12s;
+}
+
+.ap-item--active .ap-dot {
+  background: var(--ap-accent);
+  border-color: var(--ap-accent);
+}
+
+/* Animated EQ bars — the signature element */
+.ap-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 13px;
+}
+
+.ap-bars span {
+  display: block;
+  width: 3px;
+  height: 4px;
+  background: var(--ap-accent);
+  border-radius: 1px;
+}
+
+/* Only animate when actually playing */
+.ap-item--playing .ap-bars span          { animation: ap-eq 0.65s ease-in-out infinite; }
+.ap-item--playing .ap-bars span:nth-child(2) { animation-delay: 0.13s; }
+.ap-item--playing .ap-bars span:nth-child(3) { animation-delay: 0.28s; }
+
+@keyframes ap-eq {
+  0%, 100% { height: 4px; }
+  50%       { height: 13px; }
+}
+
+/* ── Item body ───────────────────────────────────────────────────────────────*/
+
+.ap-item-body   { flex: 1; min-width: 0; }
+
+.ap-item-title {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.025em;
+  margin-bottom: 6px;
+  transition: color 0.12s;
+}
+
+.ap-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+/* ── Tags ────────────────────────────────────────────────────────────────────*/
+
+.ap-tag {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+
+  color: var(--text-muted);
+
+  font-size: .65rem;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+}
+
+.ap-item:hover .ap-tag {
+  border-color: #332d26;
+  color: #6a6058;
+}
+
+.ap-item--active .ap-tag {
+  border-color: var(--ap-accent-tag);
+  color: rgba(200, 164, 106, 0.7);
+}
+
+/* Warmer variant used in the right panel display */
+.ap-tag--lit {
+  border-color: var(--ap-accent-tag);
+  color: rgba(200, 164, 106, 0.8);
+}
+
+/* ── Now-playing display ─────────────────────────────────────────────────────*/
+
+.ap-display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ap-display-eyebrow {
+  font-size: 0.57rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ap-text-lo);
+  margin-bottom: 8px;
+}
+
+.ap-display-title {
+  display: block;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 300;
+  color: var(--text-h);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 12px;
+
+  
+}
+
+.ap-display-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ap-display-idle {
+  font-size: 0.72rem;
+  color: #2e2924;
+  font-style: italic;
+  margin-top: auto;
+}
+
+/* ── Transport ───────────────────────────────────────────────────────────────*/
+
+.ap-transport {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Seek bar — generous click target via vertical padding */
+.ap-seek {
+  cursor: pointer;
+  padding: 7px 0;
+}
+
+.ap-seek-rail {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+}
+
+.ap-seek-fill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-soft)
+  );
+
+  transition: none;
+}
+
+.ap-seek:hover .ap-seek-rail {
+  background: #332d24;
+}
+
+/* Controls row */
+.ap-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ap-time {
+  font-size: 0.6rem;
+  font-family: 'Courier New', 'Courier', monospace;
+  letter-spacing: 0.05em;
+  color: var(--ap-text-lo);
+  min-width: 28px;
+}
+
+.ap-time--right {
+  text-align: right;
+}
+
+.ap-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────────*/
+
+.ap-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #504840;
+  cursor: pointer;
+  padding: 7px 9px;
+  border-radius: 2px;
+  transition: color 0.12s, background 0.12s;
+}
+
+.ap-btn:hover:not(:disabled) {
+  color: var(--ap-accent);
+  background: var(--ap-accent-dim);
+}
+
+.ap-btn:disabled {
+  opacity: 0.22;
+  cursor: default;
+}
+
+/* Main play/pause — circle */
+.ap-btn--main {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+  color: var(--ink);
+
+  border: none;
+}
+
+.ap-btn--main:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+/* ── Loading spinner ─────────────────────────────────────────────────────────*/
+
+.ap-spinner {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid #302a22;
+  border-top-color: var(--ap-accent);
+  border-radius: 50%;
+  animation: ap-spin 0.7s linear infinite;
+}
+
+@keyframes ap-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────────*/
+
+@media (max-width: 640px) {
+
+  .ap-list {
+    border-right: none;
+    border-bottom: 1px solid var(--ap-border);
+    max-height: 230px;
+  }
+
+  .ap-panel {
+    padding: 14px;
+  }
+
+  .ap-display-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* ── Motion preferences ──────────────────────────────────────────────────────*/
+
+@media (prefers-reduced-motion: reduce) {
+  .ap-bars span      { animation: none !important; height: 6px; }
+  .ap-spinner        { animation: none; }
+  .ap-seek-fill      { transition: none; }
+  .ap-item,
+  .ap-tag,
+  .ap-btn            { transition: none; }
+}

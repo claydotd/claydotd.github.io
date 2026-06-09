@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import './WebDesignPage.css'
+import JossSite from '../assets/web-portfolio/joss-site.gif'
+import BeanData from '../assets/web-portfolio/beandata.gif'
+import WeatherMusic from '../assets/web-portfolio/weathermusic.gif'
 
 const modules = [
   {
@@ -59,19 +62,26 @@ export default function WebDesignPage() {
           </article>
         ))}
       </section>
-      <section class='web-portfolio'>
+      <section className='web-portfolio'>
         <h1>portfolio</h1>
           <article className='web-module'>
               <span className="web-module-label">react/typescript</span>
               <h2>my portfolio</h2>
               <p>this is my front-end development portfolio. I built this whole website as a react app, containing pages for other react apps that I've made.</p>
               <Link className="web-cta" to="https://claydotd.netlify.app" target='_blank'>visit the site →</Link>
+              <div className='web-imgs'>
+                <img className='web-img' src={BeanData} />
+                <img className='web-img' src={WeatherMusic} />
+              </div>
             </article>
           <article className='web-module'>
             <span className="web-module-label">shopify liquid</span>
             <h2>joss designs</h2>
             <p>I'm currently managing this site and building new page components using liquid code.</p>
             <Link className="web-cta" to="https://jossdesigns.com" target='_blank'>visit the site →</Link>
+            <div className='web-imgs'>
+              <img className='web-img' src={JossSite} />
+            </div>
           </article>
       </section>
       <aside className="web-aside">

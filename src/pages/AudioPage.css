@@ -19,6 +19,7 @@
 
 .audio-hero {
   max-width: 640px;
+  margin-bottom: 20px;
 }
 
 .audio-eyebrow {
@@ -47,9 +48,7 @@
 
 .audio-console {
   display: flex;
-  align-items: flex-end;
   gap: 0.45rem;
-  height: 3.5rem;
   margin: 2.5rem 0 3rem;
   padding: 0.75rem 1rem;
   border: 1px solid rgba(255, 193, 94, 0.3);
@@ -57,22 +56,52 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
-.audio-meter {
-  flex: 1;
-  border-radius: 2px;
-  background: linear-gradient(180deg, #ffc15e 0%, rgba(255, 130, 50, 0.5) 100%);
-  animation: audio-meter-pulse 2.4s ease-in-out infinite;
+.audio-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 4rem;
+  align-items: start;
 }
 
-.audio-meter:nth-child(1) { height: 38%; animation-delay: 0s; }
-.audio-meter:nth-child(2) { height: 72%; animation-delay: 0.3s; }
-.audio-meter:nth-child(3) { height: 55%; animation-delay: 0.15s; }
-.audio-meter:nth-child(4) { height: 88%; animation-delay: 0.45s; }
-.audio-meter:nth-child(5) { height: 48%; animation-delay: 0.6s; }
+.audio-portfolio {
+  position: sticky;
+  top: 2rem; /* optional */
+}
 
-@keyframes audio-meter-pulse {
-  0%, 100% { opacity: 0.55; transform: scaleY(0.92); }
-  50% { opacity: 1; transform: scaleY(1); }
+.jump-to-portfolio {
+  display: none;
+  margin-top: 2rem;
+  
+}
+
+/* Stack when there isn't enough room */
+@media (max-width: 800px) {
+  .audio-content {
+    grid-template-columns: 1fr;
+  }
+
+  .audio-portfolio {
+    position: static;
+  }
+
+  .jump-to-portfolio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-h);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    transition: border-color 160ms ease, color 160ms ease;
+  }
+  .jump-to-portfolio:hover,
+  .jump-to-portfolio:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
 }
 
 .audio-tracks {
@@ -142,8 +171,4 @@
   color: #111;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .audio-meter {
-    animation: none;
-  }
-}
+

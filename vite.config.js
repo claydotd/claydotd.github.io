@@ -19,6 +19,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), ghPagesSpaFallback()],
-    base: env.BASE_PATH || '/agdwebsite/',
+    base: env.BASE_PATH || '/',
   }
 })
