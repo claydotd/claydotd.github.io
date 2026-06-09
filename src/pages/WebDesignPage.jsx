@@ -47,10 +47,13 @@ export default function WebDesignPage() {
           <br />
           design
         </h1>
-        <p className="web-lead">
-          truly personalised websites built to express a <strong>feeling</strong> and a <strong>story</strong>.
-          no more templates and generic designs.
+        <div className="web-lead">
+          <p>truly personalised websites built to express a <strong>feeling</strong> and a <strong>story</strong>.
+          no more templates and generic designs.</p>
+          <p className="rates">
+            £15 per hour <span>+ hosting fees</span>
         </p>
+        </div>
       </header>
 
       <section className="web-grid" aria-label="Services">

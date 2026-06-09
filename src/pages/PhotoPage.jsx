@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import './PhotoPage.css'
 import canoe from '../assets/photo-portfolio/canoe.jpeg'
-import architecture from '../assets/photo-portfolio/architecture.jpeg'
+//import architecture from '../assets/photo-portfolio/architecture.jpeg'
 import london from '../assets/photo-portfolio/london.jpeg'
+import pittenweem from '../assets/photo-portfolio/pittenweem.jpeg'
 
 const frames = [
   {
@@ -10,18 +11,21 @@ const frames = [
     caption: 'choosing the right film',
     text: 'deciding which type of film to use is essential for getting the right feel for your photos. I\'ll always use a selection of film with the right contrast, grainyness, colour response, and sharpness for your project.',
     image: london,
+    layout: 'image-left',
   },
   {
-    ratio: 'portrait',
+    ratio: 'square',
     caption: 'mood & moment',
     text: 'whether you\'re looking for a more candid feel or a purposeful stare through the lens, timing is everything when it comes to film. setting the mood, reading the moment, then opening the shutter just at the right second makes for a great image.',
-    image: architecture,
+    image: pittenweem,
+    layout: 'image-right',
   },
   {
     ratio: 'square',
     caption: 'developed and scanned',
     text: 'once we\'re finished shooting, I\'ll develop and scan your film, do some light editing to fix any brightness issues and cropping, then deliver high quality digital files and give you the roll of film.',
     image: canoe,
+    layout: 'image-left',
   },
 ]
 
@@ -35,13 +39,32 @@ export default function PhotoPage() {
       <header className="photo-hero">
         <h1 className="photo-title">photo</h1>
         <p className="photo-eyebrow">haze & grain</p>
+        {/** new text added here */}
+        <div className="photo-intro">
+          <p>
+            adventure photos, band pictures, portraits, events, and weddings.
+            I'm looking to expand my portfolio, so I'm charging budget-friendly
+            rates.
+          </p>
+
+          <p className="rates">
+            £25 per hour <span>+ film & development at cost</span>
+          </p>
+        </div>
         <blockquote className="photo-quote">
           photography with an analogue feel because it <strong>is</strong> analogue. I shoot on a canon AE-1, pentax K-1000, yashica mat TLR, and kodak hawkeye brownie.
         </blockquote>
       </header>
       <section className="photo-strip" aria-label="Services">
         {frames.map((frame) => (
-          <article key={frame.caption} className={`photo-frame photo-frame--${frame.ratio}`}>
+          <article 
+              key={frame.caption}
+              className={`
+                photo-frame
+                photo-frame--${frame.ratio}
+                photo-frame--${frame.layout}
+              `}
+          >
             <img
               className="photo-frame-image"
               src={frame.image}

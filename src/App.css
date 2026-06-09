@@ -136,3 +136,18 @@
     font-size: 1rem;
   }
 }
+
+.rates {
+  display: inline-block;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(242, 232, 214, 0.04);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: rgba(242, 232, 214, 0.95);
+}
+
+.rates span {
+  color: rgba(242, 232, 214, 0.6);
+}

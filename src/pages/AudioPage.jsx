@@ -43,12 +43,14 @@ export default function AudioPage() {
       </Link>
 
       <header className="audio-hero">
-        <p className="audio-eyebrow">warmth & warble</p>
+        <p className="audio-eyebrow">holistic audio production. digital audio that feels human.</p>
         <h1 className="audio-title">audio</h1>
         <p className="audio-lead">
-          holistic audio production. digital audio that feels human.
+          I produce music, edit podcasts, and would love to take on any audio production/editing work you have for me.
         </p>
-
+        <p className="rates">
+            £20 per hour <span>+ room hire costs</span>
+          </p>
         <a className="jump-to-portfolio" href="#portfolio">
           jump to portfolio ↓
         </a>

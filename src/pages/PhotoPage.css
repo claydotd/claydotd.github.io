@@ -46,10 +46,24 @@
 .photo-eyebrow {
   font-size: 0.85rem;
   letter-spacing: 0.28em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: rgba(242, 232, 214, 0.55);
   margin-bottom: 2rem;
 }
+
+.photo-intro {
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+}
+
+.photo-intro p:first-child {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(242, 232, 214, 0.82);
+  margin-bottom: 1rem;
+}
+
+
 
 .photo-quote {
   display: inline-block;
@@ -85,11 +99,11 @@
   grid-template-columns: 1fr 1.4fr;
 }
 
-.photo-frame--portrait .photo-frame-image {
+.photo-frame--image-right .photo-frame-image {
   order: 2;
 }
 
-.photo-frame--portrait .photo-frame-caption {
+.photo-frame--image-right .photo-frame-caption {
   order: 1;
   text-align: right;
 }
@@ -166,7 +180,7 @@
 
 .photo-cta:hover,
 .photo-cta:focus-visible {
-  background: #fff7e8;
+  background: var(--accent);
 }
 
 .photo-cta:active {
@@ -180,12 +194,12 @@
     grid-template-columns: 1fr;
   }
 
-  .photo-frame--portrait .photo-frame-image {
+  .photo-frame--image-right .photo-frame-image,
+  .photo-frame--image-right .photo-frame-caption {
     order: 0;
   }
 
-  .photo-frame--portrait .photo-frame-caption {
-    order: 0;
+  .photo-frame--image-right .photo-frame-caption {
     text-align: left;
   }
 }

@@ -325,7 +325,7 @@
 }
 
 .ap-btn:hover:not(:disabled) {
-  color: var(--ap-accent);
+  color: var(--text-h);
   background: var(--ap-accent-dim);
 }
 

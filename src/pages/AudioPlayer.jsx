@@ -313,7 +313,7 @@ export default function AudioPlayer() {
                 disabled={!activeTrack}
                 aria-label="previous track"
               >
-                <SkipIcon reverse />
+                <SkipIcon />
               </button>
 
               <button
@@ -335,7 +335,7 @@ export default function AudioPlayer() {
                 disabled={!activeTrack}
                 aria-label="next track"
               >
-                <SkipIcon />
+                <SkipIcon  reverse/>
               </button>
             </div>
 
