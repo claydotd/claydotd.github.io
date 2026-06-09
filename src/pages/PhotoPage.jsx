@@ -1,3 +1,11 @@
+/** 
+ TO DO:
+ 1. pictures of cameras scattered at the sides of the page
+images are contained at ../assets/kit-images
+camera-brownie.png
+camera-slr.png
+*/
+
 import { Link } from 'react-router-dom'
 import './PhotoPage.css'
 import canoe from '../assets/photo-portfolio/canoe.jpeg'

@@ -138,6 +138,10 @@
   text-decoration: none;
 }
 
+.brand:hover {
+  color: var(--accent);
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;

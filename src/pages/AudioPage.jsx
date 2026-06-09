@@ -1,7 +1,12 @@
 /* 
 TO DO:
-1. pictures of equipment: tape recorder, amp, AKAI, headphones
-2. audio player: ballad of A&C, bleu groove, blue, something new and synthy, something new and acoustic
+1. pictures of equipment scattered around the page at the sides, not getting in the way of content.: tape recorder, amp, AKAI, headphones
+
+images are contained at ../assets/kit-images
+headphones.png
+midi-controller.png
+tape-recorder.png
+amp.png
 
 */
 import { Link } from 'react-router-dom'

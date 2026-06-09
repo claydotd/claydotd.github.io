@@ -1,13 +1,37 @@
 /* 
 TO DO:
-1. Images of each service
-2. Hover effect for images
-3. contact form?
+1. Images to represent each service at floating at the sides of the hero section and the rest of the page.
+2. Hover effect for images (colourise/warmth effect).
+3. contact/inquiry form
+
+images are contained at ../assets/kit-images
+camera-brownie.png
+camera-slr.png
+headphones.png
+laptop.png
+midi-controller.png
+tape-recorder.png
+amp.png
 
 */
 
 import { Link } from 'react-router-dom'
 import '../App.css'
+
+//Image imports
+import cameraBrownie from '../assets/kit-images/camera-brownie.png'
+import cameraSlr from '../assets/kit-images/camera-slr.png'
+import headphones from '../assets/kit-images/headphones.png'
+import laptop from '../assets/kit-images/laptop.png'
+import midiController from '../assets/kit-images/midi-controller.png'
+import tapeRecorder from '../assets/kit-images/tape-recorder.png'
+import amp from '../assets/kit-images/amp.png'
+
+const floatingKit = [
+  { src: tapeRecorder, className: 'kit kit-audio' },
+  { src: laptop, className: 'kit kit-web' },
+  { src: cameraBrownie, className: 'kit kit-photo' },
+]
 
 const services = [
   {
@@ -30,6 +54,11 @@ const services = [
 export default function HomePage() {
   return (
     <main className="site">
+      <div className="floating-kit">
+        {floatingKit.map((img) => (
+          <img key={img.src} src={img.src} alt="" className={img.className} />
+        ))}
+      </div>
       <section className="hero">
         <p className="eyebrow">analogue gone digital</p>
         <h1>
@@ -65,17 +94,29 @@ export default function HomePage() {
 
       <section id="services" className="services">
         {services.map((service) => (
-          <article key={service.to} className="service-card">
-            <h2>
-              <Link className="card-link" to={service.to}>
-                {service.title}
-              </Link>
-            </h2>
+          <Link
+            key={service.to}
+            to={service.to}
+            className="service-card"
+          >
+            {service.to === '/audio' && (
+              <img src={headphones} alt="" className="card-image" />
+            )}
+
+            {service.to === '/web-design' && (
+              <img src={laptop} alt="" className="card-image" />
+            )}
+
+            {service.to === '/photo' && (
+              <img src={cameraSlr} alt="" className="card-image" />
+            )}
+
+            <h2>{service.title}</h2>
+
             <p>{service.copy}</p>
-            <Link className="card-cta" to={service.to}>
-              learn more →
-            </Link>
-          </article>
+
+            <span className="card-cta">learn more →</span>
+          </Link>
         ))}
       </section>
 

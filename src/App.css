@@ -78,17 +78,46 @@
 }
 
 .service-card {
+  position: relative;
+
+  display: block; /* important when Link becomes the card */
+
   border: 1px solid var(--border);
   border-radius: 0.8rem;
   padding: 1.2rem 1.1rem;
+
   text-align: left;
   background: var(--card-bg);
   backdrop-filter: blur(1px);
+
+  text-decoration: none;
+  color: inherit;
+
+  overflow: visible; /* allows image spill */
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(138, 103, 66, 0.5);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .service-card h2 {
   margin-bottom: 0.5rem;
   text-transform: lowercase;
+  transition: color 0.25s ease;
+}
+
+.service-card:hover h2 {
+  color: var(--accent);
 }
 
 .card-link {
@@ -150,4 +179,118 @@
 
 .rates span {
   color: rgba(242, 232, 214, 0.6);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.hero h1,
+.hero p,
+.hero .eyebrow {
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.9),
+    0 8px 20px rgba(0, 0, 0, 0.8),
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 40px 100px rgba(0, 0, 0, 0.45),
+    0 80px 160px rgba(0, 0, 0, 0.25);
+}
+
+.floating-kit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.kit {
+  position: absolute;
+  opacity: 1;
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease,
+    opacity 0.4s ease;
+
+  z-index: 0;
+}
+
+.kit:hover {
+  filter:
+    sepia(0.5)
+    saturate(1.3)
+    brightness(1.05)
+    contrast(1.05);
+
+  transform: scale(1.05) rotate(-2deg);
+  opacity: 1;
+}
+
+.kit-audio {
+  width: 25%;
+  top: 5%;
+  left: -40px;
+  transform: rotate(-6deg);
+  animation: floatAudio 9s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.kit-web {
+  width: 25%;
+  top: 4%;
+  right: -80px;
+  transform: rotate(4deg);
+  animation: floatWeb 11s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.kit-photo {
+  width: 15%;
+  top: 25%;
+  left: 15%;
+  transform: rotate(-3deg);
+  animation: floatPhoto 13s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+@keyframes floatAudio {
+  0%, 100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-4deg);
+  }
+}
+
+@keyframes floatWeb {
+  0%, 100% {
+    transform: translateX(0) rotate(4deg);
+  }
+  50% {
+    transform: translateX(18px) rotate(6deg);
+  }
+}
+
+@keyframes floatPhoto {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-3deg);
+  }
+  50% {
+    transform: translate(-10px, -18px) rotate(-1deg);
+  }
+}
+
+.card-image {
+  position: absolute;
+
+  top: -25px;   /* spills above */
+  right: -10px; /* spills right */
+
+  width: auto;
+  height: 100px;
+
+  opacity: 1;
+  z-index: -1;
 }
