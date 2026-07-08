@@ -184,6 +184,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.04em;
   color: rgba(242, 232, 214, 0.95);
+  margin-right: 1rem;
 }
 
 .rates span {
@@ -232,7 +233,7 @@
 .kit-web {
   width: 25%;
   top: 4%;
-  right: -80px;
+  right: 1%;
   animation: floatWeb 11s ease-in-out infinite;
   animation-delay: -2s;
 }

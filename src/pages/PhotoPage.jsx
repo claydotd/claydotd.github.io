@@ -50,7 +50,7 @@ export default function PhotoPage() {
         {/** new text added here */}
         <div className="photo-intro">
           <p>
-            adventure photos, band pictures, portraits, events, and weddings.
+            band pictures, portraits, outings, events, and weddings.
             I'm looking to expand my portfolio, so I'm charging budget-friendly
             rates.
           </p>
@@ -60,7 +60,7 @@ export default function PhotoPage() {
           </p>
         </div>
         <blockquote className="photo-quote">
-          photography with an analogue feel because it <strong>is</strong> analogue. I shoot on a canon AE-1, pentax K-1000, yashica mat TLR, and kodak hawkeye brownie.
+        <strong>digital</strong> and <strong>analogue</strong> photography. I shoot digitally or on film with a canon AE-1, pentax K-1000, yashica mat TLR, and kodak hawkeye brownie.
         </blockquote>
       </header>
       <section className="photo-strip" aria-label="Services">
@@ -86,7 +86,7 @@ export default function PhotoPage() {
         ))}
       </section>
       <footer className="photo-footer">
-        <p className="photo-process">shot on film · natural light · capturing a moment</p>
+        <p className="photo-process">film feel · natural light · capturing a moment</p>
         <Link className="photo-cta" to="/#contact">get in touch</Link>
       </footer>
     </main>

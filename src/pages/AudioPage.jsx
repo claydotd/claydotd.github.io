@@ -75,6 +75,10 @@ export default function AudioPage() {
         </section>
 
         <section id="portfolio" className="audio-portfolio">
+          <h2>Podcast Portfolio</h2>
+            <Link className="audio-cta" to="https://picturebooksummit.libsyn.com">Picture Book Summit Podcast</Link>
+            <Link className="audio-cta" to="https://sites.libsyn.com/603895">12X12 Project Podcast</Link>
+            <br /><br />
           <h2>Music Portfolio</h2>
           <AudioPlayer />
         </section>
