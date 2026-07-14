@@ -3,6 +3,7 @@ import './WebDesignPage.css'
 import JossSite from '../assets/web-portfolio/joss-site.gif'
 import BeanData from '../assets/web-portfolio/beandata.gif'
 import WeatherMusic from '../assets/web-portfolio/weathermusic.gif'
+import AnitaSite from '../assets/web-portfolio/anita-site.gif'
 
 const modules = [
   {
@@ -67,6 +68,15 @@ export default function WebDesignPage() {
       </section>
       <section className='web-portfolio'>
         <h1>portfolio</h1>
+        <article className='web-module'>
+              <span className="web-module-label">react/typescript</span>
+              <h2>anitabhadani.com</h2>
+              <p>a writing/journalism portfolio website that I built and manage. it's built in a way that allows anita to easily edit the text and portfolio examples through github.</p>
+              <Link className="web-cta" to="https://anitabhadani.com" target='_blank'>visit the site →</Link>
+              <div className='web-imgs'>
+                <img className='web-img' src={AnitaSite} />
+              </div>
+            </article>
           <article className='web-module'>
               <span className="web-module-label">react/typescript</span>
               <h2>my portfolio</h2>
