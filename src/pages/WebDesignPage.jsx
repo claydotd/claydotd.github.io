@@ -81,10 +81,10 @@ export default function WebDesignPage() {
               <div className='web-grid'>
               <div>
                 <h3>How much did it cost?</h3>
-                <p>Initial design & setup: £60</p>
-                <p>Additional updates & requests: £45</p>
+                <p>Initial design & setup: £30</p>
+                <p>Additional updates & requests: £15</p>
                 <p>Hosting & domain setup: £15</p>
-                <p>Total: <strong>£120</strong></p>
+                <p>Total: <strong>£60</strong></p>
               </div>
               <div>
                 <h3>Ongoing costs</h3>

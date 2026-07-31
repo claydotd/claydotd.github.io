@@ -49,15 +49,18 @@ export default function HomePage() {
           </Link>
         </h1>
         <p className="lead">
-          analogue gone digital is <strong>clay leslie</strong>'s audio production, web management, and photography service, based
+          analogue gone digital is <strong>clay leslie</strong>'s audio production, website development, and photography service, based
           in leith, specialising in creating a distinctly analogue feel.
         </p>
         <p className="lead">
           embracing warmth and warble in audio, movement and organic interactions on websites, and haze and grain in photography is all part of the ethos while moving
           into an increasingly digital world.
         </p>
+        <p className="lead">
+          analogue gone digital is aimed at giving musicians, artists, and creatives a one-stop-shop for all their digital needs. 
+        </p>
         <p className="lead lead-close">
-          these are digital services made for analogue humans.
+          get in touch to find out more about how we can work together create your digital presence.
         </p>
         <div className="cta-row">
           <Link className="button" to="/#contact">
