@@ -1,26 +1,49 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useLayoutEffect, useRef, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import './PageTransition.css'
 
 // ─── Timing ──────────────────────────────────────────────────────────────────
 const ENTER_MS = 900   // new page: zoom-in + grain dissolve duration
 
+function bindImageFadeIn(container) {
+  if (!container) return () => {}
+
+  const images = container.querySelectorAll('img')
+  const cleanups = []
+
+  images.forEach((img) => {
+    img.classList.remove('is-loaded')
+
+    const markLoaded = () => img.classList.add('is-loaded')
+
+    if (img.complete && img.naturalHeight > 0) {
+      markLoaded()
+      return
+    }
+
+    img.addEventListener('load', markLoaded, { once: true })
+    img.addEventListener('error', markLoaded, { once: true })
+    cleanups.push(() => {
+      img.removeEventListener('load', markLoaded)
+      img.removeEventListener('error', markLoaded)
+    })
+  })
+
+  return () => cleanups.forEach((fn) => fn())
+}
+
 // ─── Component ───────────────────────────────────────────────────────────────
 export function PageTransition({ children }) {
-  const location   = useLocation()
-  const prevKeyRef = useRef(location.key)
+  const location    = useLocation()
+  const prevKeyRef  = useRef(location.key)
+  const prevPathRef = useRef(location.pathname)
 
-  // "phase" drives CSS class → animation
-  const [phase,     setPhase]     = useState('idle')
-  // "displayed" holds the children we actually render (swapped after exit)
-  const [displayed, setDisplayed] = useState(children)
+  const [phase, setPhase] = useState('idle')
 
-  // Always keep a ref pointing at the latest children so we can read it
-  // inside a setTimeout without stale closure issues
-  const latestRef = useRef(children)
-  useEffect(() => { latestRef.current = children })
+  const contentRef    = useRef(null)
+  const enterTimerRef = useRef(null)
+  const isFirstRender = useRef(true)
 
-  // ── Grain canvas ────────────────────────────────────────────────────────
   const canvasRef = useRef(null)
   const rafRef    = useRef(null)
 
@@ -28,8 +51,6 @@ export function PageTransition({ children }) {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    // Render at 40 % of viewport → each canvas pixel maps to ~2.5 CSS pixels.
-    // Combined with image-rendering: pixelated this gives visible, chunky grain.
     const W = Math.ceil(window.innerWidth)
     const H = Math.ceil(window.innerHeight)
     canvas.width  = W
@@ -42,9 +63,7 @@ export function PageTransition({ children }) {
 
     function tick(now) {
       const t    = Math.min((now - t0) / ENTER_MS, 1)
-      // Quadratic ease-out so grain fades fast at first then gently clears
       const ease = (1 - t) * (1 - t)
-      // Peak alpha ≈ 160 (out of 255), so grain is visible but not overwhelming
       const maxA = 160
       const alpha = ease * maxA
 
@@ -58,12 +77,10 @@ export function PageTransition({ children }) {
       const d   = img.data
 
       for (let i = 0; i < d.length; i += 4) {
-        // Monochrome noise
         const v   = (Math.random() * 255) | 0
         d[i]     = v
         d[i + 1] = v
         d[i + 2] = v
-        // Each pixel gets its own random alpha so the grain is irregular
         d[i + 3] = (Math.random() * alpha) | 0
       }
 
@@ -74,56 +91,65 @@ export function PageTransition({ children }) {
     rafRef.current = requestAnimationFrame(tick)
   }, [])
 
-  // ── Route-change detector ────────────────────────────────────────────────
-  useEffect(() => {
-    if (location.key === prevKeyRef.current) return
-    prevKeyRef.current = location.key
-  
-    if (rafRef.current) cancelAnimationFrame(rafRef.current)
-  
-    // Immediately swap to the new page
-    setDisplayed(latestRef.current)
-  
-    // Start enter animation + grain
+  const beginEnter = useCallback(() => {
+    if (enterTimerRef.current) clearTimeout(enterTimerRef.current)
+
     setPhase('entering')
     runGrain()
-  
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  
-    const timer = setTimeout(() => {
+
+    enterTimerRef.current = setTimeout(() => {
       setPhase('idle')
     }, ENTER_MS)
-  
-    return () => clearTimeout(timer)
-  }, [location.key, runGrain])
+  }, [runGrain])
 
-  useEffect(() => {
-    const hash = location.hash
-  
-    if (hash) {
-      requestAnimationFrame(() => {
-        const el = document.querySelector(hash)
-        el?.scrollIntoView()
-      })
+  // ── Navigation: scroll + enter animation before paint ────────────────────
+  useLayoutEffect(() => {
+    const isRouteChange = location.key !== prevKeyRef.current
+    const isPathChange  = location.pathname !== prevPathRef.current
+    const isContactNav  = location.hash === '#contact'
+
+    if (location.hash === '#contact') {
+      document.querySelector('#contact')?.scrollIntoView()
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     }
-  }, [location])
 
-  // ── Render ───────────────────────────────────────────────────────────────
+    if (!isRouteChange && !isFirstRender.current) return
+
+    if (isRouteChange) {
+      prevKeyRef.current = location.key
+
+      if (!isPathChange && isContactNav && !isFirstRender.current) return
+    }
+
+    if (isRouteChange && isPathChange) {
+      prevPathRef.current = location.pathname
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      beginEnter()
+    }
+
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      prevPathRef.current = location.pathname
+    }
+  }, [location.key, location.pathname, location.hash, beginEnter])
+
+  // ── Per-image fade-in (before paint) ─────────────────────────────────────
+  useLayoutEffect(() => {
+    return bindImageFadeIn(contentRef.current)
+  }, [location.pathname])
+
+  // ── Cleanup enter timer on unmount ───────────────────────────────────────
+  useLayoutEffect(() => {
+    return () => {
+      if (enterTimerRef.current) clearTimeout(enterTimerRef.current)
+    }
+  }, [])
+
   return (
-    <div className={`pt pt--${phase}`}>
-      {/* Full-viewport grain canvas; only active during 'entering' */}
+    <div ref={contentRef} className={`pt pt--${phase}`}>
       <canvas ref={canvasRef} className="pt-grain" aria-hidden="true" />
-      {displayed}
+      {children}
     </div>
   )
 }
-
-// TWEAKS:
-//   • EXIT_MS / ENTER_MS — overall speed
-//   • maxA in runGrain()  — grain intensity (0 = none, 255 = full)
-//   • 0.4 canvas scale    — grain coarseness (lower = chunkier)
-//   • CSS variables:
-//       --pt-exit-scale: 0.93      (how far the page shrinks on exit)
-//       --pt-enter-scale: 1.05     (how far the page starts scaled on enter)
-//       --pt-blur-peak: 8px        (blur at peak of enter)
-//       --pt-grain-blend: screen   (blend mode; try overlay / luminosity)

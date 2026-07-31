@@ -1,6 +1,7 @@
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { memo } from 'react'
 import FilmGrain from './FilmGrain'
+import HomeFloatingKit from './HomeFloatingKit'
 import './SiteLayout.css'
 import { PageTransition } from './PageTransition'
 
@@ -102,6 +103,7 @@ export default function SiteLayout() {
           ))}
         </nav>
       </header>
+      <HomeFloatingKit />
       <PageTransition>
         <Outlet />
       </PageTransition>

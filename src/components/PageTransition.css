@@ -4,14 +4,23 @@
    ────────────────────────────────────────────────────────────────────────── */
 
 .pt {
-  --pt-enter-scale:  0.95;      /* how far new page starts zoomed-in         */
   --pt-blur-peak:    4px;       /* max blur at start of enter                */
   --pt-grain-blend:  screen;    /* grain blend mode: screen | overlay | soft-light */
 }
 
+/* Non-kit page images fade in individually once loaded */
+.pt img {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.pt img.is-loaded {
+  opacity: 1;
+}
+
 /* Only promote to GPU layer while animating */
 .pt--entering {
-  will-change: transform, opacity, filter;
+  will-change: opacity, filter;
 }
 
 /* ── ENTER ──────────────────────────────────────────────────────────────── */
@@ -22,18 +31,15 @@
 
 @keyframes pt-enter {
   0% {
-    opacity:   0;
-    transform: scale(var(--pt-enter-scale, 1.05));
-    filter:    blur(var(--pt-blur-peak, 8px));
+    opacity: 0;
+    filter:  blur(var(--pt-blur-peak, 8px));
   }
-  /* Blur clears by ~55 % of the duration — matches when grain thins out */
   55% {
     filter: blur(0px);
   }
   100% {
-    opacity:   1;
-    transform: scale(1);
-    filter:    blur(0px);
+    opacity: 1;
+    filter:  blur(0px);
   }
 }
 
@@ -78,4 +84,5 @@
 @media (prefers-reduced-motion: reduce) {
   .pt--entering { animation-duration: 1ms !important; }
   .pt-grain     { display: none; }
+  .pt img { opacity: 1; transition: none; }
 }

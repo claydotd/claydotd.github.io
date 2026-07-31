@@ -4,6 +4,7 @@ import JossSite from '../assets/web-portfolio/joss-site.gif'
 import BeanData from '../assets/web-portfolio/beandata.gif'
 import WeatherMusic from '../assets/web-portfolio/weathermusic.gif'
 import AnitaSite from '../assets/web-portfolio/anita-site.gif'
+import AnitaSite2 from '../assets/web-portfolio/anita-site2.gif'
 
 const modules = [
   {
@@ -22,7 +23,7 @@ const modules = [
     span: 'standard',
     label: '03',
     title: 'performance & care',
-    text: 'creating something that\'s nice to use across all devices and browsers is the goal. I\'ll make sure your site is accessible, and easy to maintain.',
+    text: 'creating something that\'s nice to use across all devices and browsers is the goal. I\'ll make sure your site is accessible and easy to maintain.',
   },
   {
     span: 'standard',
@@ -75,6 +76,21 @@ export default function WebDesignPage() {
               <Link className="web-cta" to="https://anitabhadani.com" target='_blank'>visit the site →</Link>
               <div className='web-imgs'>
                 <img className='web-img' src={AnitaSite} />
+                <img className='web-img' src={AnitaSite2} />
+              </div>
+              <div className='web-grid'>
+              <div>
+                <h3>How much did it cost?</h3>
+                <p>Initial design & setup: £60</p>
+                <p>Additional updates & requests: £45</p>
+                <p>Hosting & domain setup: £15</p>
+                <p>Total: <strong>£120</strong></p>
+              </div>
+              <div>
+                <h3>Ongoing costs</h3>
+                <p>Hosting: <strong>free</strong></p>
+                <p>Domain name: £12 per year</p>
+              </div>
               </div>
             </article>
           <article className='web-module'>

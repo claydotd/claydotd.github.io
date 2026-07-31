@@ -8,19 +8,9 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 
 //Image imports
-import cameraBrownie from '../assets/kit-images/camera-brownie.png'
 import cameraSlr from '../assets/kit-images/camera-slr.png'
 import headphones from '../assets/kit-images/headphones.png'
 import laptop from '../assets/kit-images/laptop.png'
-import midiController from '../assets/kit-images/midi-controller.png'
-import tapeRecorder from '../assets/kit-images/tape-recorder.png'
-import amp from '../assets/kit-images/amp.png'
-
-const floatingKit = [
-  { src: tapeRecorder, className: 'kit kit-audio' },
-  { src: laptop, className: 'kit kit-web' },
-  { src: cameraBrownie, className: 'kit kit-photo' },
-]
 
 const services = [
   {
@@ -43,11 +33,6 @@ const services = [
 export default function HomePage() {
   return (
     <main className="site">
-      <div className="floating-kit">
-        {floatingKit.map((img) => (
-          <img key={img.src} src={img.src} alt="" className={img.className} />
-        ))}
-      </div>
       <section className="hero">
         <p className="eyebrow">analogue gone digital</p>
         <h1>
