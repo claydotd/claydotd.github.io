@@ -3,6 +3,13 @@
   min-height: 100vh;
 }
 
+.site-header,
+.site-footer,
+.pt {
+  position: relative;
+  z-index: 1;
+}
+
 .atmosphere {
   position: fixed;
   inset: 0;

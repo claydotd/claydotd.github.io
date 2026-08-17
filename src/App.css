@@ -209,21 +209,35 @@
   pointer-events: none;
   overflow: visible;
   z-index: 0;
-  visibility: hidden;
-}
-
-.floating-kit--visible {
-  visibility: visible;
 }
 
 .kit-wrap {
   position: absolute;
-  opacity: 0;
-  transition: opacity 0.6s ease;
 }
 
-.kit-wrap--ready {
-  opacity: 1;
+.kit-float {
+  width: 100%;
+  transform-origin: center center;
+}
+
+.kit-drift {
+  will-change: transform;
+}
+
+.kit-drift-a {
+  animation: kit-drift-a var(--kit-drift-duration, 18s) ease-in-out var(--kit-drift-delay, 0s) infinite;
+}
+
+.kit-drift-b {
+  animation: kit-drift-b var(--kit-drift-duration, 18s) ease-in-out var(--kit-drift-delay, 0s) infinite;
+}
+
+.kit-drift-c {
+  animation: kit-drift-c var(--kit-drift-duration, 18s) ease-in-out var(--kit-drift-delay, 0s) infinite;
+}
+
+.kit-drift-d {
+  animation: kit-drift-d var(--kit-drift-duration, 18s) ease-in-out var(--kit-drift-delay, 0s) infinite;
 }
 
 .kit-wrap img {
@@ -236,59 +250,141 @@
   width: 25%;
   top: 5%;
   left: -40px;
-  transform-origin: top left;
 }
 
-.kit-wrap--ready.kit-wrap-audio {
-  animation: floatAudio 9s ease-in-out infinite;
+.kit-wrap-audio .kit-float {
+  transform: rotate(-6deg);
 }
 
 .kit-wrap-web {
   width: 25%;
   top: 4%;
   right: 1%;
-  transform-origin: top right;
 }
 
-.kit-wrap--ready.kit-wrap-web {
-  animation: floatWeb 11s ease-in-out 2s infinite;
+.kit-wrap-web .kit-float {
+  transform: rotate(4deg);
 }
 
 .kit-wrap-photo {
   width: 15%;
   top: 25%;
   left: 15%;
-  transform-origin: top left;
 }
 
-.kit-wrap--ready.kit-wrap-photo {
-  animation: floatPhoto 13s ease-in-out 4s infinite;
+.kit-wrap-photo .kit-float {
+  transform: rotate(-3deg);
 }
 
-@keyframes floatAudio {
+.kit-wrap-audio-2 {
+  width: 18%;
+  top: 6%;
+  right: -25px;
+}
+
+.kit-wrap-audio-2 .kit-float {
+  transform: rotate(4deg);
+}
+
+.kit-wrap-audio-3 {
+  width: 22%;
+  bottom: 18%;
+  left: -25px;
+}
+
+.kit-wrap-audio-3 .kit-float {
+  transform: rotate(-3deg);
+}
+
+.kit-wrap-audio-4 {
+  width: 20%;
+  bottom: 12%;
+  right: 3%;
+}
+
+.kit-wrap-audio-4 .kit-float {
+  transform: rotate(5deg);
+}
+
+.kit-wrap-photo-2 {
+  width: 20%;
+  top: 5%;
+  right: 1%;
+}
+
+.kit-wrap-photo-2 .kit-float {
+  transform: rotate(4deg);
+}
+
+.floating-kit--photo .kit-wrap-photo {
+  top: 20vh;
+  left: 12%;
+}
+
+@keyframes kit-drift-a {
   0%, 100% {
-    transform: rotate(-6deg) translateY(0);
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(12px, -16px);
   }
   50% {
-    transform: rotate(-4deg) translateY(-14px);
+    transform: translate(-8px, -22px);
+  }
+  75% {
+    transform: translate(-14px, 6px);
   }
 }
 
-@keyframes floatWeb {
+@keyframes kit-drift-b {
   0%, 100% {
-    transform: rotate(4deg) translateX(0);
+    transform: translate(0, 0);
   }
-  50% {
-    transform: rotate(6deg) translateX(18px);
+  30% {
+    transform: translate(-16px, -10px);
+  }
+  55% {
+    transform: translate(10px, 14px);
+  }
+  80% {
+    transform: translate(18px, -6px);
   }
 }
 
-@keyframes floatPhoto {
+@keyframes kit-drift-c {
   0%, 100% {
-    transform: rotate(-3deg) translate(0, 0);
+    transform: translate(0, 0);
   }
-  50% {
-    transform: rotate(-1deg) translate(-10px, -18px);
+  20% {
+    transform: translate(8px, 12px);
+  }
+  45% {
+    transform: translate(-14px, -18px);
+  }
+  70% {
+    transform: translate(6px, -8px);
+  }
+}
+
+@keyframes kit-drift-d {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  35% {
+    transform: translate(-10px, -20px);
+  }
+  60% {
+    transform: translate(16px, 8px);
+  }
+  85% {
+    transform: translate(-6px, 16px);
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .kit-drift {
+    animation: none;
   }
 }
 
@@ -302,29 +398,4 @@
   height: 100px;
 
   z-index: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kit-wrap {
-    opacity: 1;
-    transition: none;
-  }
-
-  .kit-wrap--ready.kit-wrap-audio,
-  .kit-wrap--ready.kit-wrap-web,
-  .kit-wrap--ready.kit-wrap-photo {
-    animation: none;
-  }
-
-  .kit-wrap-audio {
-    transform: rotate(-6deg);
-  }
-
-  .kit-wrap-web {
-    transform: rotate(4deg);
-  }
-
-  .kit-wrap-photo {
-    transform: rotate(-3deg);
-  }
 }

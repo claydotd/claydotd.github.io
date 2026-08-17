@@ -1,9 +1,9 @@
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { memo } from 'react'
+import { memo, useLayoutEffect } from 'react'
 import FilmGrain from './FilmGrain'
-import HomeFloatingKit from './HomeFloatingKit'
+import FloatingKit from './FloatingKit'
+import PageReveal from './PageReveal'
 import './SiteLayout.css'
-import { PageTransition } from './PageTransition'
 
 const navLinks = [
   { to: '/', label: 'home' },
@@ -80,11 +80,22 @@ const Atmosphere = memo(function Atmosphere() {
 })
 
 export default function SiteLayout() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
+
+  useLayoutEffect(() => {
+    if (hash === '#contact') {
+      document.querySelector('#contact')?.scrollIntoView()
+      return
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [pathname, hash])
 
   return (
     <div className="site-shell">
       <Atmosphere />
+
+      <FloatingKit />
 
       <header className="site-header">
         <Link className="brand" to="/">
@@ -103,11 +114,10 @@ export default function SiteLayout() {
           ))}
         </nav>
       </header>
-      <HomeFloatingKit />
-      <PageTransition>
+
+      <PageReveal>
         <Outlet />
-      </PageTransition>
-      
+      </PageReveal>
 
       <footer className="site-footer">
         <p>

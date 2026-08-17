@@ -68,7 +68,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="services">
+      <section id="services" className="services reveal-stagger">
         {services.map((service) => (
           <Link
             key={service.to}

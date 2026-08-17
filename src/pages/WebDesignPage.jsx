@@ -60,7 +60,7 @@ export default function WebDesignPage() {
         </div>
       </header>
 
-      <section className="web-grid" aria-label="Services">
+      <section className="web-grid reveal-stagger" aria-label="Services">
         {modules.map((mod) => (
           <article key={mod.label} className={`web-module web-module--${mod.span}`}>
             <span className="web-module-label">{mod.label}</span>

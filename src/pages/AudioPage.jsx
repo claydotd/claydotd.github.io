@@ -1,14 +1,3 @@
-/* 
-TO DO:
-1. pictures of equipment scattered around the page at the sides, not getting in the way of content.: tape recorder, amp, AKAI, headphones
-
-images are contained at ../assets/kit-images
-headphones.png
-midi-controller.png
-tape-recorder.png
-amp.png
-
-*/
 import { Link } from 'react-router-dom'
 import AudioPlayer from './AudioPlayer'
 import './AudioPage.css'
@@ -62,7 +51,7 @@ export default function AudioPage() {
       </header>
 
       <div className="audio-content">
-        <section className="audio-tracks" aria-label="Services">
+        <section className="audio-tracks reveal-stagger" aria-label="Services">
           {tracks.map((track) => (
             <article key={track.id} className="audio-track">
               <span className="audio-track-id">{track.id}</span>

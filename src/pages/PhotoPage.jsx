@@ -1,11 +1,3 @@
-/** 
- TO DO:
- 1. pictures of cameras scattered at the sides of the page
-images are contained at ../assets/kit-images
-camera-brownie.png
-camera-slr.png
-*/
-
 import { Link } from 'react-router-dom'
 import './PhotoPage.css'
 import canoe from '../assets/photo-portfolio/canoe.jpeg'
@@ -63,7 +55,7 @@ export default function PhotoPage() {
         <strong>digital</strong> and <strong>analogue</strong> photography. I shoot digitally or on film with a canon AE-1, pentax K-1000, yashica mat TLR, and kodak hawkeye brownie.
         </blockquote>
       </header>
-      <section className="photo-strip" aria-label="Services">
+      <section className="photo-strip reveal-stagger" aria-label="Services">
         {frames.map((frame) => (
           <article 
               key={frame.caption}

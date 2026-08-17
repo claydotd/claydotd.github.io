@@ -1,0 +1,44 @@
+.page-reveal main > *:not(.reveal-stagger),
+.page-reveal .reveal-stagger > * {
+  opacity: 0;
+  animation: page-reveal-in 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-reveal main > *:not(.reveal-stagger):nth-child(1)  { animation-delay:    0ms; }
+.page-reveal main > *:not(.reveal-stagger):nth-child(2)  { animation-delay:  150ms; }
+.page-reveal main > *:not(.reveal-stagger):nth-child(3)  { animation-delay:  300ms; }
+.page-reveal main > *:not(.reveal-stagger):nth-child(4)  { animation-delay:  450ms; }
+.page-reveal main > *:not(.reveal-stagger):nth-child(5)  { animation-delay:  600ms; }
+.page-reveal main > *:not(.reveal-stagger):nth-child(6)  { animation-delay:  750ms; }
+.page-reveal main > *:not(.reveal-stagger):nth-child(7)  { animation-delay:  900ms; }
+.page-reveal main > *:not(.reveal-stagger):nth-child(8)  { animation-delay: 1050ms; }
+
+.page-reveal .reveal-stagger > *:nth-child(1) { animation-delay: 300ms; }
+.page-reveal .reveal-stagger > *:nth-child(2) { animation-delay: 430ms; }
+.page-reveal .reveal-stagger > *:nth-child(3) { animation-delay: 560ms; }
+.page-reveal .reveal-stagger > *:nth-child(4) { animation-delay: 690ms; }
+.page-reveal .reveal-stagger > *:nth-child(5) { animation-delay: 820ms; }
+.page-reveal .reveal-stagger > *:nth-child(6) { animation-delay: 950ms; }
+.page-reveal .reveal-stagger > *:nth-child(7) { animation-delay: 1080ms; }
+.page-reveal .reveal-stagger > *:nth-child(8) { animation-delay: 1210ms; }
+
+@keyframes page-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-reveal main > *:not(.reveal-stagger),
+  .page-reveal .reveal-stagger > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
