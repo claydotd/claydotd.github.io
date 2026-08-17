@@ -5,6 +5,8 @@ import BeanData from '../assets/web-portfolio/beandata.gif'
 import WeatherMusic from '../assets/web-portfolio/weathermusic.gif'
 import AnitaSite from '../assets/web-portfolio/anita-site.gif'
 import AnitaSite2 from '../assets/web-portfolio/anita-site2.gif'
+import Digillama1 from '../assets/web-portfolio/digillama1.png'
+import Digillama2 from '../assets/web-portfolio/digillama2.png'
 
 const modules = [
   {
@@ -69,6 +71,29 @@ export default function WebDesignPage() {
       </section>
       <section className='web-portfolio'>
         <h1>portfolio</h1>
+        <article className='web-module'>
+              <span className="web-module-label">react/typescript</span>
+              <h2>digillama</h2>
+              <p>an artist portfolio website that I'm working on. The artist can easily add new portfolio items and update the text and images directly through Github, but without any code.</p>
+              <p>The design started with the simple concept <i>"morphing blobs like a lava lamp"</i>.</p>
+              <Link className="web-cta" to="https://analoguegonedigital.co.uk/digillama" target='_blank'>visit the site →</Link>
+              <div className='web-imgs'>
+                <img className='web-img' src={Digillama1} />
+                <img className='web-img' src={Digillama2} />
+              </div>
+              <div className='web-grid'>
+              <div>
+                <h3>How much did it cost?</h3>
+                <p>Initial design & setup: £45</p>
+                <p>Hosting setup: £5</p>
+                <p>Total: <strong>£50</strong></p>
+              </div>
+              <div>
+                <h3>Ongoing costs</h3>
+                <p>Hosting: <strong>free</strong></p>
+              </div>
+              </div>
+            </article>
         <article className='web-module'>
               <span className="web-module-label">react/typescript</span>
               <h2>anitabhadani.com</h2>

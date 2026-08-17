@@ -50,17 +50,16 @@ export default function HomePage() {
         </h1>
         <p className="lead">
           analogue gone digital is <strong>clay leslie</strong>'s audio production, website development, and photography service, based
-          in leith, specialising in creating a distinctly analogue feel.
+          in leith, scotland, helping people create a complete and unique digital presence at a price they can afford.
         </p>
         <p className="lead">
-          embracing warmth and warble in audio, movement and organic interactions on websites, and haze and grain in photography is all part of the ethos while moving
-          into an increasingly digital world.
+          embracing warmth and warble in audio, movement and organic interactions on websites, and haze and grain in photography is all part of translating the analogue into the digital while making it feel real.
         </p>
         <p className="lead">
-          analogue gone digital is aimed at giving musicians, artists, and creatives a one-stop-shop for all their digital needs. 
+          analogue gone digital is aimed at giving musicians, artists, and creatives a one-stop-shop for everything they need to showcase their work. 
         </p>
         <p className="lead lead-close">
-          get in touch to find out more about how we can work together create your digital presence.
+          get in touch to find out more about how we can work together!
         </p>
         <div className="cta-row">
           <Link className="button" to="/#contact">
