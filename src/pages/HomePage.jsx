@@ -16,17 +16,17 @@ const services = [
   {
     to: '/audio',
     title: 'audio',
-    copy: 'warm sounds, organic production, character and texture.',
+    copy: 'music, podcasts, soundscapes, and more. recording, mixing, mastering, and podcast editing.',
   },
   {
     to: '/web-design',
     title: 'web design',
-    copy: 'beautifully simple and tactile webpages.',
+    copy: 'no cookies, no tracking, no ads. just websites to show off who you are and what you do.',
   },
   {
     to: '/photo',
     title: 'photo',
-    copy: 'haze, grain, and soft light for telling stories.',
+    copy: 'band pictures, portraits, outings, events, and weddings in edinburgh, scotland.',
   },
 ]
 

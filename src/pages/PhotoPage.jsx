@@ -39,7 +39,7 @@ export default function PhotoPage() {
       <header className="photo-hero">
         <h1 className="photo-title">photo</h1>
         <p className="photo-eyebrow">haze & grain</p>
-        {/** new text added here */}
+
         <div className="photo-intro">
           <p>
             band pictures, portraits, outings, events, and weddings
