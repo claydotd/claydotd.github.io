@@ -42,7 +42,8 @@ export default function PhotoPage() {
         {/** new text added here */}
         <div className="photo-intro">
           <p>
-            band pictures, portraits, outings, events, and weddings.
+            band pictures, portraits, outings, events, and weddings
+            in leith, edinburgh, and across scotland.
             I'm looking to expand my portfolio, so I'm charging budget-friendly
             rates.
           </p>

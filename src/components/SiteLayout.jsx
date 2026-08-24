@@ -3,6 +3,7 @@ import { memo, useLayoutEffect } from 'react'
 import FilmGrain from './FilmGrain'
 import FloatingKit from './FloatingKit'
 import PageReveal from './PageReveal'
+import Seo from './Seo'
 import './SiteLayout.css'
 
 const navLinks = [
@@ -93,6 +94,7 @@ export default function SiteLayout() {
 
   return (
     <div className="site-shell">
+      <Seo />
       <Atmosphere />
 
       <FloatingKit />
@@ -120,6 +122,7 @@ export default function SiteLayout() {
       </PageReveal>
 
       <footer className="site-footer">
+        <p>analogue gone digital · leith, edinburgh, scotland</p>
         <p>
           <Link to="/#contact">contact</Link>
           {' · '}

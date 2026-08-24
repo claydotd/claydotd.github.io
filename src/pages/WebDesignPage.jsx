@@ -42,7 +42,7 @@ export default function WebDesignPage() {
         <Link className="web-back" to="/">
           ← home
         </Link>
-        <p className="web-tag">tactile & simple</p>
+        <p className="web-tag">beautifully simple.</p>
       </div>
 
       <header className="web-hero">
@@ -52,8 +52,10 @@ export default function WebDesignPage() {
           design
         </h1>
         <div className="web-lead">
-          <p>truly personalised websites built to express a <strong>feeling</strong> and a <strong>story</strong>.
-          no more templates and generic designs.</p>
+          <p>I'm on a mission to make the web a simpler place. that means <strong>no cookies</strong>, <strong>no tracking</strong>, and <strong>no ads</strong>.</p>
+          <p>just personalised websites to show off <strong>who you are</strong> and <strong>what you do</strong>.
+          no more sticking to templates and generic designs.</p>
+          <p>I design and build websites from leith for clients across edinburgh and scotland.</p>
           <p className="rates">
             £15 per hour <span>+ hosting fees</span>
         </p>

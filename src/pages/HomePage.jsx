@@ -41,7 +41,7 @@ export default function HomePage() {
           </Link>
           {' | '}
           <Link className="title-link" to="/web-design">
-            web design
+            websites
           </Link>
           {' | '}
           <Link className="title-link" to="/photo">
@@ -50,7 +50,7 @@ export default function HomePage() {
         </h1>
         <p className="lead">
           analogue gone digital is <strong>clay leslie</strong>'s audio production, website development, and photography service, based
-          in leith, scotland, helping people create a complete and unique digital presence at a price they can afford.
+          in leith, edinburgh, helping people across scotland create a complete and unique digital presence at a price they can afford.
         </p>
         <p className="lead">
           embracing warmth and warble in audio, movement and organic interactions on websites, and haze and grain in photography is all part of translating the analogue into the digital while making it feel real.
@@ -76,15 +76,15 @@ export default function HomePage() {
             className="service-card"
           >
             {service.to === '/audio' && (
-              <img src={headphones} alt="" className="card-image" />
+              <img src={headphones} alt="Audio production in Leith, Scotland" className="card-image" />
             )}
 
             {service.to === '/web-design' && (
-              <img src={laptop} alt="" className="card-image" />
+              <img src={laptop} alt="Web design in Edinburgh and Scotland" className="card-image" />
             )}
 
             {service.to === '/photo' && (
-              <img src={cameraSlr} alt="" className="card-image" />
+              <img src={cameraSlr} alt="Film photography in Leith, Scotland" className="card-image" />
             )}
 
             <h2>{service.title}</h2>

@@ -40,7 +40,7 @@ export default function AudioPage() {
         <p className="audio-eyebrow">holistic audio production. digital audio that feels human.</p>
         <h1 className="audio-title">audio</h1>
         <p className="audio-lead">
-          I produce music, edit podcasts, and would love to take on any audio production/editing work you have for me.
+          I produce music, edit podcasts, and would love to take on any audio production/editing work you have for me. based in leith, working with musicians and podcasters across edinburgh and scotland.
         </p>
         <p className="rates">
             £20 per hour <span>+ room hire costs</span>
