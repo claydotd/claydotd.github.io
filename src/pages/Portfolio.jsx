@@ -2,14 +2,12 @@ import { Link } from 'react-router-dom'
 import AudioPlayer from './AudioPlayer'
 import './Portfolio.css'
 
-import digillama1 from '../assets/web-portfolio/digillama1.png'
 import digillama2 from '../assets/web-portfolio/digillama2.png'
-import anitaSite from '../assets/web-portfolio/anita-site.gif'
 import anitaSite2 from '../assets/web-portfolio/anita-site2.gif'
 import beanData from '../assets/web-portfolio/beandata.gif'
 import weatherMusic from '../assets/web-portfolio/weathermusic.gif'
 import cleslieAuthor from '../assets/web-portfolio/cmleslie.png'
-import stowawaySite from '../assets/web-portfolio/stowaway.gif'
+import groundedPresence from '../assets/web-portfolio/groundedpresence.png'
 
 import canoe from '../assets/photo-portfolio/canoe.jpeg'
 import london from '../assets/photo-portfolio/london.jpeg'
@@ -37,13 +35,12 @@ const webProjects = [
     shots: [digillama2],
   },
   {
-    title: 'anitabhadani.com',
-    stack: 'react / typescript / github pages',
-    blurb:
-      'a writing and journalism portfolio. anita adds her own examples and edits pages using markdown straight from github.',
-    url: 'https://anitabhadani.com',
+    title: 'Grounded Presence',
+    stack: 'react / typescript ',
+    blurb: 'a portfolio site for a photographer. for this one, I recreated (and upgraded) a design that they had on Webflow. Claire is able to easily add photo collections by uploading folders, and edit/add pages by editing markdown files.',
+    url: 'https://groundedpresence.online',
     live: true,
-    shots: [anitaSite2],
+    shots: [groundedPresence],
   },
   {
     title: 'c. m. leslie, author',
@@ -54,12 +51,13 @@ const webProjects = [
     shots: [cleslieAuthor],
   },
   {
-    title: 'san-pow',
-    stack: 'react / typescript / netlify',
-    blurb: 'a site for a music project. work in progress.',
-    url: 'https://analoguegonedigital.co.uk/stowaway/',
-    live: false,
-    shots: [stowawaySite],
+    title: 'anitabhadani.com',
+    stack: 'react / typescript / github pages',
+    blurb:
+      'a writing and journalism portfolio. anita adds her own examples and edits pages using markdown straight from github.',
+    url: 'https://anitabhadani.com',
+    live: true,
+    shots: [anitaSite2],
   },
   {
     title: "clay's portfolio",
