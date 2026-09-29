@@ -8,6 +8,9 @@ import beanData from '../assets/web-portfolio/beandata.gif'
 import weatherMusic from '../assets/web-portfolio/weathermusic.gif'
 import cleslieAuthor from '../assets/web-portfolio/cmleslie.png'
 import groundedPresence from '../assets/web-portfolio/groundedpresence.png'
+import convoproj1 from '../assets/web-portfolio/convoproj1.png'
+import convoproj2 from '../assets/web-portfolio/convoproj2.png'
+import edinburghfolk from '../assets/web-portfolio/edinburghfolkclub.png'
 
 import canoe from '../assets/photo-portfolio/canoe.jpeg'
 import london from '../assets/photo-portfolio/london.jpeg'
@@ -36,11 +39,27 @@ const webProjects = [
   },
   {
     title: 'Grounded Presence',
-    stack: 'react / typescript ',
+    stack: 'react / typescript / github pages',
     blurb: 'a portfolio site for a photographer. for this one, I recreated (and upgraded) a design that they had on Webflow. Claire is able to easily add photo collections by uploading folders, and edit/add pages by editing markdown files.',
     url: 'https://groundedpresence.online',
     live: true,
     shots: [groundedPresence],
+  },
+  {
+    title: 'Edinburgh Folk Club',
+    stack: 'react / typescript / netlify',
+    blurb: 'a site featuring event listings, a members area, photo gallery, newsletter signup, and more. currently in development.',
+    url: 'https://analoguegonedigital.co.uk/edinburghfolkclub/',
+    live: true,
+    shots: [edinburghfolk],
+  },
+  {
+    title: 'the Conversation Project',
+    stack: 'react / typescript / netlify',
+    blurb: 'a website with eventbrite integration and a small online shop that takes payments via SumUp. I built in an admin area with CMS so that Eileen can update content, layout and shop products completely independently.',
+    url: 'https://theconversationproject.uk/',
+    live: true,
+    shots: [convoproj1, convoproj2],
   },
   {
     title: 'c. m. leslie, author',
