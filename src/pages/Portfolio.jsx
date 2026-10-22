@@ -11,6 +11,7 @@ import groundedPresence from '../assets/web-portfolio/groundedpresence.png'
 import convoproj1 from '../assets/web-portfolio/convoproj1.png'
 import convoproj2 from '../assets/web-portfolio/convoproj2.png'
 import edinburghfolk from '../assets/web-portfolio/edinburghfolkclub.png'
+import elainaFielding from '../assets/web-portfolio/elainafielding.png'
 
 import canoe from '../assets/photo-portfolio/canoe.jpeg'
 import london from '../assets/photo-portfolio/london.jpeg'
@@ -29,6 +30,22 @@ const sections = [
 // set `live: false` on a site that isn't published yet
 const webProjects = [
   {
+    title: 'Edinburgh Folk Club',
+    stack: 'react / typescript / netlify',
+    blurb: 'a site featuring event listings, a members area, photo gallery, news articles, and more. Admins are able to edit gigs, news articles and homepage banners themselves without touching any code.',
+    url: 'https://efc1973.com',
+    live: true,
+    shots: [edinburghfolk],
+  },
+  {
+    title: 'Elaina Fielding',
+    stack: 'react / typescript / netlify',
+    blurb: 'an artist portfolio for a sculpture artist. We were looking to make a clean, minimal site where the focus is on displaying the work. I built a custom CMS so Elaina can add and edit new works herself.',
+    url: 'https://elainafielding.co.uk',
+    live: true,
+    shots: [elainaFielding],
+  },
+  {
     title: 'c+c artworks',
     stack: 'react / typescript / github pages',
     blurb:
@@ -44,14 +61,6 @@ const webProjects = [
     url: 'https://groundedpresence.online',
     live: true,
     shots: [groundedPresence],
-  },
-  {
-    title: 'Edinburgh Folk Club',
-    stack: 'react / typescript / netlify',
-    blurb: 'a site featuring event listings, a members area, photo gallery, newsletter signup, and more. currently in development.',
-    url: 'https://analoguegonedigital.co.uk/edinburghfolkclub/',
-    live: true,
-    shots: [edinburghfolk],
   },
   {
     title: 'the Conversation Project',
