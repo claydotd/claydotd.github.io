@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import './PhotoPage.css'
-import canoe from '../assets/photo-portfolio/canoe.jpeg'
-//import architecture from '../assets/photo-portfolio/architecture.jpeg'
-import london from '../assets/photo-portfolio/london.jpeg'
-import pittenweem from '../assets/photo-portfolio/pittenweem.jpeg'
+import canoe from '../assets/photo-portfolio/canoe.webp'
+import london from '../assets/photo-portfolio/london.webp'
+import pittenweem from '../assets/photo-portfolio/pittenweem.webp'
 
 const frames = [
   {
@@ -69,6 +68,8 @@ export default function PhotoPage() {
               className="photo-frame-image"
               src={frame.image}
               alt={frame.caption}
+              loading="lazy"
+              decoding="async"
             />
             <div className="photo-frame-caption">
               <h2>{frame.caption}</h2>

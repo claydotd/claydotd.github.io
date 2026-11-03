@@ -17,12 +17,6 @@ import './AudioPlayer.css'
 // ─── Track data ───────────────────────────────────────────────────────────────
 const TRACKS = [
   {
-    id: 'leftside',
-    title: 'the left side of our street (demo)',
-    src: leftsideUrl,
-    tags: ['chill', 'guitars', 'indie-rock', 'tape', 'vocals', 'harmonizer', 'demo'],
-  },
-  {
     id: 'blue',
     title: 'blue',
     src: blueUrl,
@@ -33,6 +27,12 @@ const TRACKS = [
     title: 'lactose',
     src: lactoseUrl,
     tags: ['indie-rock', 'singer-songwriter', 'vocals', 'guitars', 'piano'],
+  },
+  {
+    id: 'leftside',
+    title: 'the left side of our street (demo)',
+    src: leftsideUrl,
+    tags: ['chill', 'guitars', 'indie-rock', 'tape', 'vocals', 'harmonizer', 'demo'],
   },
   {
     id: 'charlie',

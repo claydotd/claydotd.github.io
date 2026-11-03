@@ -2,24 +2,25 @@ import { Link } from 'react-router-dom'
 import AudioPlayer from './AudioPlayer'
 import './Portfolio.css'
 
-import digillama2 from '../assets/web-portfolio/digillama2.png'
+import digillama2 from '../assets/web-portfolio/digillama2.webp'
 import anitaSite2 from '../assets/web-portfolio/anita-site2.gif'
 import beanData from '../assets/web-portfolio/beandata.gif'
-import weatherMusic from '../assets/web-portfolio/weathermusic.gif'
-import cleslieAuthor from '../assets/web-portfolio/cmleslie.png'
-import groundedPresence from '../assets/web-portfolio/groundedpresence.png'
-import convoproj1 from '../assets/web-portfolio/convoproj1.png'
-import convoproj2 from '../assets/web-portfolio/convoproj2.png'
-import edinburghfolk from '../assets/web-portfolio/edinburghfolkclub.png'
-import elainaFielding from '../assets/web-portfolio/elainafielding.png'
+import weatherMusic from '../assets/web-portfolio/weathermusic.webp'
+import cleslieAuthor from '../assets/web-portfolio/cmleslie.webp'
+import groundedPresence from '../assets/web-portfolio/groundedpresence.webp'
+import convoproj1 from '../assets/web-portfolio/convoproj1.webp'
+import convoproj2 from '../assets/web-portfolio/convoproj2.webp'
+import efc1 from '../assets/web-portfolio/efc1.webp'
+import efc2 from '../assets/web-portfolio/efc2.webp'
+import elainaFielding from '../assets/web-portfolio/elainafielding.webp'
 
-import canoe from '../assets/photo-portfolio/canoe.jpeg'
-import london from '../assets/photo-portfolio/london.jpeg'
-import pittenweem from '../assets/photo-portfolio/pittenweem.jpeg'
-import architecture from '../assets/photo-portfolio/architecture.jpeg'
-import golden1 from '../assets/photo-portfolio/golden1.jpg'
-import golden2 from '../assets/photo-portfolio/golden2.jpg'
-import party from '../assets/photo-portfolio/party.jpeg'
+import canoe from '../assets/photo-portfolio/canoe.webp'
+import london from '../assets/photo-portfolio/london.webp'
+import pittenweem from '../assets/photo-portfolio/pittenweem.webp'
+import architecture from '../assets/photo-portfolio/architecture.webp'
+import golden1 from '../assets/photo-portfolio/golden1.webp'
+import golden2 from '../assets/photo-portfolio/golden2.webp'
+import party from '../assets/photo-portfolio/party.webp'
 
 const sections = [
   { id: 'web', label: 'web' },
@@ -35,7 +36,7 @@ const webProjects = [
     blurb: 'a site featuring event listings, a members area, photo gallery, news articles, and more. Admins are able to edit gigs, news articles and homepage banners themselves without touching any code.',
     url: 'https://efc1973.com',
     live: true,
-    shots: [edinburghfolk],
+    shots: [efc1, efc2],
   },
   {
     title: 'Elaina Fielding',
@@ -74,7 +75,7 @@ const webProjects = [
     title: 'c. m. leslie, author',
     stack: 'react / typescript / github pages',
     blurb: 'an author website for a writing portfolio, blog, and bio. they add blog posts and can edit page content using markdown straight from github.',
-    url: 'https://analoguegonedigital.co.uk/cleslieauthor/',
+    url: 'https://cmleslie.scot/',
     live: true,
     shots: [cleslieAuthor],
   },
@@ -135,7 +136,14 @@ function WebCard({ project }) {
       <div className="folio-shots">
         {project.shots.length > 0 ? (
           project.shots.map((shot) => (
-            <img key={shot} className="folio-shot" src={shot} alt={`${project.title} website`} />
+            <img
+              key={shot}
+              className="folio-shot"
+              src={shot}
+              alt={`${project.title} website`}
+              loading="lazy"
+              decoding="async"
+            />
           ))
         ) : (
           <div className="folio-shot folio-shot--empty" aria-hidden="true" />
@@ -230,7 +238,14 @@ export default function Portfolio() {
         </div>
         <div className="folio-gallery">
           {photos.map((photo) => (
-            <img key={photo.src} className="folio-photo" src={photo.src} alt={photo.alt} />
+            <img
+              key={photo.src}
+              className="folio-photo"
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              decoding="async"
+            />
           ))}
         </div>
       </section>

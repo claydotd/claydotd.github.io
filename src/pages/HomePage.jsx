@@ -128,7 +128,7 @@ export default function HomePage() {
         </p>
         <p className="lead lead-close">
           analogue gone digital is aimed at giving musicians, artists, writers, and other creatives a one-stop-shop
-          for everything they need to showcase their work online. <strong><em>let's make it happen</em></strong>.
+          for everything they need to showcase their work online.<br /><strong><em>let's make it happen</em></strong>.
         </p>
         <div className="cta-row">
           <Link className="button button-solid" to="/contact">
