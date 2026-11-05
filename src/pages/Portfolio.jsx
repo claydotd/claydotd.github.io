@@ -4,8 +4,7 @@ import './Portfolio.css'
 
 import digillama2 from '../assets/web-portfolio/digillama2.webp'
 import anitaSite2 from '../assets/web-portfolio/anita-site2.gif'
-import beanData from '../assets/web-portfolio/beandata.gif'
-import weatherMusic from '../assets/web-portfolio/weathermusic.webp'
+import claydotd from '../assets/web-portfolio/claydotd.webp'
 import cleslieAuthor from '../assets/web-portfolio/cmleslie.webp'
 import groundedPresence from '../assets/web-portfolio/groundedpresence.webp'
 import convoproj1 from '../assets/web-portfolio/convoproj1.webp'
@@ -45,6 +44,15 @@ const webProjects = [
     url: 'https://elainafielding.co.uk',
     live: true,
     shots: [elainaFielding],
+  },
+  {
+    title: "clay's portfolio",
+    stack: 'react / javascript / netlify',
+    blurb:
+      'my front-end playground: a react app full of other react apps, updated whenever I have a new idea for something bite sized to build.',
+    url: 'https://claydotd.netlify.app/',
+    live: true,
+    shots: [claydotd],
   },
   {
     title: 'c+c artworks',
@@ -87,15 +95,6 @@ const webProjects = [
     url: 'https://anitabhadani.com',
     live: true,
     shots: [anitaSite2],
-  },
-  {
-    title: "clay's portfolio",
-    stack: 'react / javascript / netlify',
-    blurb:
-      'my front-end playground: a react app full of other react apps, updated whenever I have a new idea for something bite sized to build.',
-    url: 'https://claydotd.netlify.app/',
-    live: true,
-    shots: [beanData, weatherMusic],
   },
 ]
 
