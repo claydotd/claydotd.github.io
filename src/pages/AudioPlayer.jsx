@@ -11,11 +11,18 @@ import bleugrooveUrl   from '../assets/audio-portfolio/bleugroove.mp3'
 import bummersummerUrl from '../assets/audio-portfolio/bummersummer.mp3'
 import lactoseUrl      from '../assets/audio-portfolio/lactose.mp3'
 import leftsideUrl     from '../assets/audio-portfolio/leftside.mp3'
+import antidoteUrl     from '../assets/audio-portfolio/antidote.mp3'
 
 import './AudioPlayer.css'
 
 // ─── Track data ───────────────────────────────────────────────────────────────
 const TRACKS = [
+  {
+    id: 'antidote',
+    title: 'coyote tobacco - antidote (demo)',
+    src: antidoteUrl,
+    tags: ['upbeat', 'guitars', 'vocals', 'indie-rock', 'demo'],
+  },
   {
     id: 'blue',
     title: 'blue',
