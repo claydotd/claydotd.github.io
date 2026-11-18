@@ -5,8 +5,6 @@ import * as Tone from 'tone'
 // Vite resolves these to hashed public URLs at build time.
 import blueUrl         from '../assets/audio-portfolio/blue.mp3'
 import charlieUrl      from '../assets/audio-portfolio/charlie.mp3'
-import url2015         from '../assets/audio-portfolio/2015.mp3'
-import montrealUrl     from '../assets/audio-portfolio/montreal.mp3'
 import bleugrooveUrl   from '../assets/audio-portfolio/bleugroove.mp3'
 import bummersummerUrl from '../assets/audio-portfolio/bummersummer.mp3'
 import lactoseUrl      from '../assets/audio-portfolio/lactose.mp3'
@@ -46,18 +44,6 @@ const TRACKS = [
     title: 'charlie',
     src: charlieUrl,
     tags: ['groove', 'synths', 'indie-rock', 'lo-fi', 'vocals'],
-  },
-  {
-    id: '2015',
-    title: '2015',
-    src: url2015,
-    tags: ['groove', 'synths', '80s inspired', 'electronic', 'chill'],
-  },
-  {
-    id: 'montreal',
-    title: 'montreal',
-    src: montrealUrl,
-    tags: ['trap groove', 'synths', 'electronic', 'chill'],
   },
   {
     id: 'bleugroove',

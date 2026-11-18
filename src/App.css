@@ -319,11 +319,6 @@
   transform: rotate(4deg);
 }
 
-.floating-kit--photo .kit-wrap-photo {
-  top: 20vh;
-  left: 12%;
-}
-
 /* Spread all kit pieces down the tall portfolio page */
 .floating-kit--portfolio .kit-wrap-web {
   width: 16%;

@@ -185,7 +185,7 @@ export default function Portfolio() {
       <section id="web" className="folio-section" aria-labelledby="web-heading">
         <div className="folio-section-head">
           <h2 id="web-heading">web</h2>
-          <Link className="folio-section-link" to="/web-design">
+          <Link className="folio-section-link" to="/how-i-work">
             how it works →
           </Link>
         </div>
@@ -199,7 +199,7 @@ export default function Portfolio() {
       <section id="audio" className="audio-section" aria-labelledby="audio-heading">
         <div className="folio-section-head">
           <h2 id="audio-heading">audio</h2>
-          <Link className="folio-section-link" to="/audio">
+          <Link className="folio-section-link" to="/how-i-work">
             how it works →
           </Link>
         </div>
@@ -231,7 +231,7 @@ export default function Portfolio() {
       <section id="photo" className="folio-section" aria-labelledby="photo-heading">
         <div className="folio-section-head">
           <h2 id="photo-heading">photo</h2>
-          <Link className="folio-section-link" to="/photo">
+          <Link className="folio-section-link" to="/how-i-work">
             how it works →
           </Link>
         </div>

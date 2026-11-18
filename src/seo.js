@@ -10,26 +10,12 @@ export const pages = {
     keywords:
       'web design Edinburgh, web design Leith, web design Scotland, audio production Edinburgh, photography Edinburgh, film photography Scotland, podcast editing Edinburgh, affordable websites Scotland',
   },
-  '/web-design': {
-    title: 'Web design in Leith, Scotland | custom websites from £15/hr',
+  '/how-i-work': {
+    title: 'How I work | analogue gone digital, Leith',
     description:
-      'Custom website design in Leith and across Scotland. No cookies, no ads, no templates. Personal sites for artists and small businesses. From £15 per hour.',
+      'How Clay Leslie approaches web design, audio production, and photography projects in Leith, Edinburgh, and across Scotland.',
     keywords:
-      'web design Leith, web design Edinburgh, web designer Scotland, affordable websites Edinburgh, custom websites Scotland, Shopify developer Edinburgh',
-  },
-  '/audio': {
-    title: 'Audio production in Leith, Scotland | recording, mixing & podcasts',
-    description:
-      'Audio production in Leith, Edinburgh: recording, mixing, mastering, and podcast editing. Warm, human-sounding production for musicians and creators across Scotland.',
-    keywords:
-      'audio production Edinburgh, recording studio Leith, mixing and mastering Scotland, podcast editing Edinburgh, music producer Leith',
-  },
-  '/photo': {
-    title: 'Photography in Leith, Scotland | film & digital portraits, bands & events',
-    description:
-      'Film and digital photography in Leith, Edinburgh, and across Scotland. Band photos, portraits, events, and weddings at budget-friendly rates.',
-    keywords:
-      'photographer Leith, photographer Edinburgh, film photography Scotland, band photography Edinburgh, wedding photographer Leith, portrait photographer Scotland',
+      'how analogue gone digital works, web design process Edinburgh, audio production process Leith, photography process Scotland',
   },
   '/contact': {
     title: 'Contact | web design, audio & photography in Leith, Scotland',
@@ -97,7 +83,7 @@ export const businessJsonLd = {
             itemOffered: {
               '@type': 'Service',
               name: 'Web design',
-              url: `${SITE_URL}/web-design`,
+              url: `${SITE_URL}/how-i-work`,
               areaServed: 'Scotland',
             },
             priceSpecification: {
@@ -112,7 +98,7 @@ export const businessJsonLd = {
             itemOffered: {
               '@type': 'Service',
               name: 'Audio production',
-              url: `${SITE_URL}/audio`,
+              url: `${SITE_URL}/how-i-work`,
               areaServed: 'Scotland',
             },
             priceSpecification: {
@@ -127,7 +113,7 @@ export const businessJsonLd = {
             itemOffered: {
               '@type': 'Service',
               name: 'Photography',
-              url: `${SITE_URL}/photo`,
+              url: `${SITE_URL}/how-i-work`,
               areaServed: 'Scotland',
             },
             priceSpecification: {

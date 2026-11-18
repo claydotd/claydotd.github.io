@@ -14,18 +14,10 @@ const kitSets = {
     { src: laptop, name: 'web', drift: 'b', driftDuration: 20, driftDelay: -4 },
     { src: cameraBrownie, name: 'photo', drift: 'c', driftDuration: 22, driftDelay: -8 },
   ],
-  '/audio': [
-    { src: tapeRecorder, name: 'audio', drift: 'a', driftDuration: 17, driftDelay: 0 },
-    { src: headphones, name: 'audio-2', drift: 'b', driftDuration: 19, driftDelay: -3 },
-    { src: amp, name: 'audio-3', drift: 'c', driftDuration: 21, driftDelay: -7 },
-    { src: midiController, name: 'audio-4', drift: 'd', driftDuration: 18, driftDelay: -11 },
-  ],
-  '/web-design': [
+  '/how-i-work': [
     { src: laptop, name: 'web', drift: 'b', driftDuration: 20, driftDelay: 0 },
-  ],
-  '/photo': [
-    { src: cameraBrownie, name: 'photo', drift: 'c', driftDuration: 22, driftDelay: 0 },
-    { src: cameraSlr, name: 'photo-2', drift: 'd', driftDuration: 19, driftDelay: -6 },
+    { src: tapeRecorder, name: 'audio', drift: 'a', driftDuration: 17, driftDelay: -2 },
+    { src: cameraBrownie, name: 'photo', drift: 'c', driftDuration: 22, driftDelay: -5 },
   ],
   '/about': [
     { src: cameraSlr, name: 'photo-2', drift: 'b', driftDuration: 19, driftDelay: -3 },
@@ -71,7 +63,7 @@ export default function FloatingKit() {
 
   return (
     <div
-      className={`floating-kit${pathname === '/photo' ? ' floating-kit--photo' : ''}${pathname === '/portfolio' ? ' floating-kit--portfolio' : ''}`}
+      className={`floating-kit${pathname === '/portfolio' ? ' floating-kit--portfolio' : ''}`}
       aria-hidden="true"
     >
       {items.map((item) => (

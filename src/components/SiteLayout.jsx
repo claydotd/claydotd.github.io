@@ -9,7 +9,8 @@ import './SiteLayout.css'
 const navLinks = [
   { to: '/', label: 'home' },
   { to: '/portfolio', label: 'portfolio' },
-  { to: '/about', label: 'about' },
+  { to: '/how-i-work', label: 'how I work' },
+  { to: '/about', label: 'about me' },
   { to: '/contact', label: 'contact' },
 ]
 

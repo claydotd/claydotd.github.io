@@ -1,6 +1,6 @@
 /* ─────────────────────────────────────────────────────────────────────────────
    AudioPlayer — warmth & warble
-   Namespace: .ap-*  (avoids collisions with .audio-* on AudioPage)
+   Namespace: .ap-*  (avoids collisions with other audio styles)
    ───────────────────────────────────────────────────────────────────────────── */
 
 /* ── Palette tokens ──────────────────────────────────────────────────────────  */
