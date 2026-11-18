@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import FeaturedBubbles from '../components/FeaturedBubbles'
 import '../App.css'
 import './HomePage.css'
 
@@ -193,33 +194,10 @@ export default function HomePage() {
         <div className="featured-head">
           <h2 id="featured-heading">featured projects</h2>
           <Link className="featured-all" to="/portfolio#web">
-            see all →
+            see the full portfolio →
           </Link>
         </div>
-        <div className="featured-grid reveal-stagger">
-          {featuredProjects.map((project) => (
-            <a
-              key={project.title}
-              className="featured-card"
-              href={project.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                className="featured-shot"
-                src={project.image}
-                alt={`${project.title} website`}
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="featured-body">
-                <h3>{project.title}</h3>
-                <p>{project.blurb}</p>
-                <span className="featured-cta">visit the site →</span>
-              </div>
-            </a>
-          ))}
-        </div>
+        <FeaturedBubbles projects={featuredProjects} />
       </section>
 
       <section id="contact" className="contact">
