@@ -2,26 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://analoguegonedigital.co.uk/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://analoguegonedigital.co.uk/web-design</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://analoguegonedigital.co.uk/portfolio</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://analoguegonedigital.co.uk/audio</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://analoguegonedigital.co.uk/how-i-work</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://analoguegonedigital.co.uk/photo</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://analoguegonedigital.co.uk/about</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://analoguegonedigital.co.uk/contact</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
