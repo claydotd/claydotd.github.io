@@ -33,6 +33,10 @@ const kitSets = {
     { src: midiController, name: 'audio-4', drift: 'b', driftDuration: 18, driftDelay: -14 },
     { src: cameraSlr, name: 'photo-2', drift: 'c', driftDuration: 20, driftDelay: -17 },
   ],
+  '/how-i-work': [
+    { src: laptop, name: 'web', drift: 'b', driftDuration: 20, driftDelay: 0 },
+    { src: tapeRecorder, name: 'audio', drift: 'a', driftDuration: 17, driftDelay: -2 },
+  ],
 }
 
 function getKitItems(pathname) {

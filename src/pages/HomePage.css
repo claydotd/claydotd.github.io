@@ -169,11 +169,11 @@
 .featured-arena {
   position: relative;
   height: clamp(340px, 38vw, 390px);
-  border: 1px solid var(--border);
+  /* border: 1px solid var(--border);
   border-radius: 1.2rem;
   background:
     radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255, 193, 94, 0.08), transparent 70%),
-    var(--card-bg);
+    var(--card-bg); */
   overflow: hidden;
   touch-action: manipulation;
 }
