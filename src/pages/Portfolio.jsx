@@ -12,6 +12,8 @@ import convoproj2 from '../assets/web-portfolio/convoproj2.webp'
 import efc1 from '../assets/web-portfolio/efc1.webp'
 import efc2 from '../assets/web-portfolio/efc2.webp'
 import elainaFielding from '../assets/web-portfolio/elainafielding.webp'
+import fombl from '../assets/web-portfolio/fombl.webp'
+import rheaKhandelwal from '../assets/web-portfolio/rheakhandelwal.webp'
 
 import canoe from '../assets/photo-portfolio/canoe.webp'
 import london from '../assets/photo-portfolio/london.webp'
@@ -29,6 +31,24 @@ const sections = [
 
 // set `live: false` on a site that isn't published yet
 const webProjects = [
+  {
+    title: 'Friends of the Meadows and Bruntsfield Links',
+    stack: 'react / typescript',
+    blurb:
+      'FoMBL reached out to me looking for an updated design for their website and someone to take over webmaster duties. I built a new site with events listings, news, info, and a reorganised local history section. the site is hosted on heart internet.',
+    url: 'https://fombl.org.uk',
+    live: true,
+    shots: [fombl],
+  },
+  {
+    title: 'Rhea Khandelwal',
+    stack: 'react / typescript / netlify',
+    blurb:
+      'a site for Rhea\'s psychotherapy practice with a custom CMS so she can easily update page content and images herself.',
+    url: 'https://rheakhandelwal.com',
+    live: true,
+    shots: [rheaKhandelwal],
+  },
   {
     title: 'Edinburgh Folk Club',
     stack: 'react / typescript / netlify',
